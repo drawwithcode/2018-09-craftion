@@ -32,7 +32,11 @@ function setup() {
 }
 
 function draw() {
-	clear();
+
+  clear();
+  textAlign(CENTER);
+  textSize(30);
+  text('Where Are You?', width/2, height/8);
 
 	var point = myMap.latLngToPixel(myLoc.latitude, myLoc.longitude);
 
