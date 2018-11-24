@@ -9,10 +9,15 @@ var options = {
 	style: 'mapbox://styles/craftion/cjovp9kw3b3o52sl805grn5ab',
 	pitch: 50
 }
+var myImage;
+var mySong;
 
 function preload(){
   // put preload code here
   myLoc = getCurrentPosition();
+  myImage = loadImage("./assets/here.png");
+  mySong = loadSound("./assets/dr-tumi-you-are-here.mp3");
+
 }
 
 function setup() {
@@ -28,19 +33,20 @@ function setup() {
 
 function draw() {
 	clear();
-	angleMode(DEGREES);
+
 	var point = myMap.latLngToPixel(myLoc.latitude, myLoc.longitude);
-	fill('black');
-	push();
-	translate(point.x, point.y);
-	rotate(45);
-	rectMode(CENTER);
-	rect(0,0,30,10);
-	pop();
-	push();
-	translate(point.x, point.y);
-	rotate(-45);
-	rectMode(CENTER);
-	rect(0,0,30,10);
-	pop();
+
+  imageMode(CENTER);
+	image(myImage, point.x, point.y, myImage.width, myImage.height);
+  mySong.play();
+  if (mySong.isPlaying() == false) {
+      mySong.play();
+    }
+
+
+}
+
+
+function mouseWheel() {
+
 }
