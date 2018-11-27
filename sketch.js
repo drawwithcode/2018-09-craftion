@@ -34,9 +34,7 @@ function setup() {
 
 
 mySong.play();
-  if (mySong.isPlaying() == false) {
-      mySong.play();
-    }
+
 }
 
 function draw() {
@@ -47,13 +45,15 @@ function draw() {
   textSize(30);
   text('Where Are You?', width/2, height/8);
 
+	imageMode(CENTER);
 	var point = myMap.latLngToPixel(myLoc.latitude, myLoc.longitude);
 	image(myImage, point.x, point.y, myImage.width, myImage.height);
 
 
-  imageMode(CENTER);
-
-
+   mySong.amp(analyzer);
+	 if (mySong.isPlaying() == false) {
+       mySong.play();
+     }
 
 }
 
