@@ -29,28 +29,31 @@ function setup() {
 
 	myMap = mappa.tileMap(options);
 	myMap.overlay(canvas);
+mySong.play();
+  if (mySong.isPlaying() == false) {
+      mySong.play();
+    }
 }
 
 function draw() {
 
   clear();
+
   textAlign(CENTER);
   textSize(30);
   text('Where Are You?', width/2, height/8);
 
 	var point = myMap.latLngToPixel(myLoc.latitude, myLoc.longitude);
+	image(myImage, point.x, point.y, myImage.width, myImage.height);
+
 
   imageMode(CENTER);
-	image(myImage, point.x, point.y, myImage.width, myImage.height);
-  mySong.play();
-  if (mySong.isPlaying() == false) {
-      mySong.play();
-    }
+
 
 
 }
 
-
-function mouseWheel() {
-
-}
+//
+// function mouseWheel() {
+//
+// }
