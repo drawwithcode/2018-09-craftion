@@ -11,7 +11,8 @@ var options = {
 }
 var myImage;
 var mySong;
-
+var volume;
+var analyzer;
 function preload(){
   // put preload code here
   myLoc = getCurrentPosition();
@@ -29,6 +30,9 @@ function setup() {
 
 	myMap = mappa.tileMap(options);
 	myMap.overlay(canvas);
+
+
+
 mySong.play();
   if (mySong.isPlaying() == false) {
       mySong.play();
@@ -54,6 +58,7 @@ function draw() {
 }
 
 //
-// function mouseWheel() {
-//
-// }
+function mouseWheel(analyzer) {
+	analyzer = new p5.Amplitude();
+analyzer.setInput(mySong);
+}
