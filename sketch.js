@@ -58,7 +58,14 @@ function draw() {
 }
 
 //
-function mouseWheel(analyzer) {
-	analyzer = new p5.Amplitude();
-analyzer.setInput(mySong);
+function mouseWheel(event) {
+    print(event.delta);
+	 pos += event.delta;
+
+		if (pos > 1000){
+			pos=1000
+		}
+		if(pos<0)
+		{pos=0}
+		
 }
