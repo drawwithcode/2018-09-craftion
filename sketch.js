@@ -13,6 +13,7 @@ var myImage;
 var mySong;
 var volume;
 var analyzer;
+var pos;
 function preload(){
   // put preload code here
   myLoc = getCurrentPosition();
@@ -54,7 +55,7 @@ function draw() {
 	 if (mySong.isPlaying() == false) {
        mySong.play();
      }
-
+  
 }
 
 //
@@ -67,5 +68,5 @@ function mouseWheel(event) {
 		}
 		if(pos<0)
 		{pos=0}
-		
+
 }
